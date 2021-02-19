@@ -51,7 +51,7 @@ export const FormStep = ({isStepSelected,key,index,stepId,step,currentForm}) => 
   if('undefined' === typeof(stepId)){
     return 'loading..';
   }
-  console.log((Object.keys(stepsOrder).length),index);
+  
   return (
     <Box p="1rem" bg="white" mb="1rem" border="1px" borderColor="gray.400">
       <Flex w="100%" alignItems="center" justifyContent="space-between">

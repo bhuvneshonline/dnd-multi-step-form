@@ -89,7 +89,7 @@ const DefaultNewForm = {
       elements_order: [0,1,2,3,4],
     },
     1: {
-      title: 'Step 1',
+      title: 'Step 2',
       elements_order: [],
     },
     2: {
@@ -131,7 +131,6 @@ export default function(state = initState, action){
       const {stepId,elementId} = action.payload;
       const currentStep = currentForm.steps[stepId];
       const newStepElementOrder = currentStep.elements_order.filter(value => value !== elementId);
-      console.log(newStepElementOrder);
       newState = {
         ...state,
         currentForm: {
@@ -155,7 +154,6 @@ export default function(state = initState, action){
       const {stepId} = action.payload;
       const currentStep = currentForm.steps[stepId];
       const newStepsOrder = currentForm.stepsOrder.filter(value => value !== stepId);
-      console.log(newStepsOrder);
       newState = {
         ...state,
         currentForm: {
@@ -213,7 +211,6 @@ export default function(state = initState, action){
         },
       };
 
-      console.log(newState,newLayerId)
       
       return newState;
     }
@@ -224,10 +221,8 @@ export default function(state = initState, action){
       const {currentForm} = state;
       const {stepsOrder} = currentForm;
       const currentStepIndex = stepsOrder.indexOf(parseInt(stepId));
-      console.log(stepsOrder,stepId,currentStepIndex);
 
       const newStepsOrderArray = move(stepsOrder,currentStepIndex,currentStepIndex - 1);
-      console.log(newStepsOrderArray)
 
 
       newState = {
@@ -246,9 +241,7 @@ export default function(state = initState, action){
       const {currentForm} = state;
       const {stepsOrder} = currentForm;
       const currentStepIndex = stepsOrder.indexOf(parseInt(stepId));
-      console.log(stepsOrder,stepId,currentStepIndex);
       const newStepsOrderArray = move(stepsOrder,currentStepIndex,currentStepIndex + 1);
-      console.log(newStepsOrderArray)
 
       newState = {
         ...state,
